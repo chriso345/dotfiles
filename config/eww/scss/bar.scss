@@ -53,21 +53,52 @@
   padding: 0 4px;
 }
 
+$transparency: 0.7;
+
 .workspace {
-  color: $color3;
+  color: transparentize($color3, $transparency);
   border-radius: 1rem;
   margin: 0 0.25rem;
   padding: 0 0.1rem;
   transition: color 0.3s ease-in-out;
+
+  &.used {
+    color: transparentize($color6, $transparency);
+  }
+
+  &.current {
+    font-weight: bold;
+  }
+
+  &.current:not(.used) {
+    color: $color3;
+  }
+
+  &.current.used {
+    color: $color6;
+  }
+
+  &.second {
+    color: $color4;
+
+    &.used {
+      color: transparentize($color4, $transparency);
+    }
+
+    &.current {
+      font-weight: bold;
+
+      &.used {
+        color: $color4;
+      }
+
+      &:not(.used) {
+        color: $color4;
+      }
+    }
+  }
 }
 
-.workspace.used {
-  color: $color6;
-}
-
-.workspace.second {
-  color: $color4;
-}
 
 .workspace:hover {
   color: mix($foreground, $color13, 70%);

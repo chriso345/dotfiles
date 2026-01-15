@@ -38,7 +38,9 @@
       (for workspace in workspaces
         (button :class "workspace ${active_workspace == workspace.id ? "current" : ""} ${workspace.windows > 0 ? "used" : ""} ${workspace.id == 10 ? "second" : ""}"
                 :onclick "hyprctl dispatch workspace ${workspace.id}"
-                "${active_workspace == workspace.id ? "" : ""}")))))
+                ;; "${active_workspace == workspace.id ? "" : ""}"
+                "${workspace.id == 10 ? "0" : workspace.id}"
+                )))))
                 ;; "${active_workspace == workspace.id ? "" : "${workspace.id}"}")))))
 
 (defwidget clock []

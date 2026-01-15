@@ -58,6 +58,8 @@ bindkey "^R" fzf-history-widget
 bindkey "^[[3~" delete-char
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
 
 # TMUX
 bindkey -s '^f' "~/.config/tmux/scripts/session.sh\n"

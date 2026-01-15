@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 
 TS_SEARCH_PATHS=(
-  ~/personal
   ~/dev
+  ~/personal
+  ~/sandbox
+  ~/personal/plugins
+)
+
+TS_INCLUDE_FOLDERS=(
+  ~/.config/nvim
+)
+
+TS_EXCLUDE_FOLDERS=(
+  ~/personal/plugins
 )
 
 tree() {
@@ -40,10 +50,27 @@ find_dirs() {
   # Get existing session names
   existing_sessions=$(tmux list-sessions -F "#{session_name}" 2>/dev/null || true)
 
+  # Start with included folders
+  for dir in "${TS_INCLUDE_FOLDERS[@]}"; do
+    [[ -d "$dir" ]] || continue
+    name=$(basename "$dir" | tr . _)
+    if ! echo "$existing_sessions" | grep -qx "$name"; then
+      echo "$dir"
+    fi
+  done
+
+  # Then search in search paths
   for dir in "${TS_SEARCH_PATHS[@]}"; do
     [[ -d "$dir" ]] || continue
     find "$dir" -mindepth 1 -maxdepth 1 -type d | while read -r d; do
-      # basename to check against session names
+      # Skip excluded folders
+      skip=false
+      for ex in "${TS_EXCLUDE_FOLDERS[@]}"; do
+        [[ "$d" == "$ex" ]] && skip=true
+      done
+      $skip && continue
+
+      # Skip if session exists
       name=$(basename "$d" | tr . _)
       if ! echo "$existing_sessions" | grep -qx "$name"; then
         echo "$d"
