@@ -34,7 +34,8 @@
 #cpu,
 #battery,
 #pulseaudio,
-#custom-meu {
+#custom-notification,
+#custom-menu {
   min-width: 12px;
   margin: 0 7.5px;
 }
