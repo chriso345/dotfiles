@@ -46,7 +46,7 @@ keymap = [
   # Toggle
   { on = "<Space>", run = [
     "toggle",
-    "arrow next",
+    "arrow 1",
   ], desc = "Toggle the current selection state" },
   { on = "<C-a>", run = "toggle_all --state=on", desc = "Select all files" },
   { on = "<C-r>", run = "toggle_all", desc = "Invert selection of all files" },
@@ -154,7 +154,7 @@ keymap = [
     ",",
     "M",
   ], run = [
-    "sort mtime --reverse",
+    "sort mtime --reverse=yes",
     "linemode mtime",
   ], desc = "Sort by modified time (reverse)" },
   { on = [
@@ -168,7 +168,7 @@ keymap = [
     ",",
     "B",
   ], run = [
-    "sort btime --reverse",
+    "sort btime --reverse=yes",
     "linemode btime",
   ], desc = "Sort by birth time (reverse)" },
   { on = [
@@ -178,7 +178,7 @@ keymap = [
   { on = [
     ",",
     "E",
-  ], run = "sort extension --reverse", desc = "Sort by extension (reverse)" },
+  ], run = "sort extension --reverse=yes", desc = "Sort by extension (reverse)" },
   { on = [
     ",",
     "a",
@@ -186,7 +186,7 @@ keymap = [
   { on = [
     ",",
     "A",
-  ], run = "sort alphabetical --reverse", desc = "Sort alphabetically (reverse)" },
+  ], run = "sort alphabetical --reverse=yes", desc = "Sort alphabetically (reverse)" },
   { on = [
     ",",
     "n",
@@ -194,7 +194,7 @@ keymap = [
   { on = [
     ",",
     "N",
-  ], run = "sort natural --reverse", desc = "Sort naturally (reverse)" },
+  ], run = "sort natural --reverse=yes", desc = "Sort naturally (reverse)" },
   { on = [
     ",",
     "s",
@@ -206,7 +206,7 @@ keymap = [
     ",",
     "S",
   ], run = [
-    "sort size --reverse",
+    "sort size --reverse=yes",
     "linemode size",
   ], desc = "Sort by size (reverse)" },
   { on = [
@@ -441,8 +441,12 @@ keymap = [
   { on = "p", run = "paste", desc = "Paste copied characters after the cursor" },
   { on = "P", run = "paste --before", desc = "Paste copied characters before the cursor" },
 
-  # Undo/Redo
-  { on = "u", run = "undo", desc = "Undo the last operation" },
+  # Undo/Redo/Casefy
+  { on = "u", run = [
+    "undo",
+    "casefy lower",
+  ], desc = "Undo, or lowercase if in visual mode" },
+  { on = "U", run = "casefy upper", desc = "Uppercase" },
   { on = "<C-r>", run = "redo", desc = "Redo the last operation" },
 
   # Help
