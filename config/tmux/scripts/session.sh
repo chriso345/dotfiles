@@ -2,9 +2,10 @@
 
 TS_SEARCH_PATHS=(
   ~/dev
+  ~/dev/plugins
   ~/personal
   ~/sandbox
-  ~/personal/plugins
+  ~/uni
 )
 
 TS_INCLUDE_FOLDERS=(
@@ -12,7 +13,7 @@ TS_INCLUDE_FOLDERS=(
 )
 
 TS_EXCLUDE_FOLDERS=(
-  ~/personal/plugins
+  ~/dev/plugins
 )
 
 tree() {
