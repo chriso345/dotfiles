@@ -1,9 +1,10 @@
 {
   "reload_style_on_change": true,
+  "output": "HDMI-A-1",
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "height": 26,
+  "height": 34,
   "modules-left": ["custom/menu", "hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": [
@@ -16,6 +17,7 @@
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
+    "all-outputs": true,
     "format-icons": {
       "default": "",
       "1": "1",
@@ -96,3 +98,4 @@
     "escape": true
   },
 }
+
