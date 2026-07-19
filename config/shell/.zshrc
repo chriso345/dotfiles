@@ -71,6 +71,10 @@ NEWLINE=$'\n'
 [[ ! -r '~/.opam/opam-init/init.zsh' ]] || source '~/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 eval "$(opam env)"
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/share/nvm/init-nvm.sh" ] && \. "/usr/share/nvm/init-nvm.sh"
+
 # Initialise Plugins
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

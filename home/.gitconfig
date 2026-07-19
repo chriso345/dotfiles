@@ -4,6 +4,12 @@
 [credential "https://github.com"]
   helper = !/usr/bin/gh auth git-credential
 
+[credential "https://gitlab.com"]
+  helper = !/home/chris/sandbox/glitter/target/debug/glit credential
+
+[credential "https://bitbucket.org"]
+  username = coli772
+
 [core]
   editor = nvim
   longpaths = false
@@ -19,6 +25,7 @@
   fuck = !git amend && git fpush                        # Quick alias to amend and push
   start = !git init && git commit --allow-empty -m \"Initial Commit\"  # Init a repo with an initial empty commit
   lose = !git add . && git stash && git stash drop
+  get = !git fetch && git pull && git submodule foreach 'git pull'
  
   # --- Logs & History ---
   last = log --pretty=slog -1 HEAD                      # Show last commit
@@ -60,3 +67,9 @@
 
 [url "https://github.com/chriso345/"]
     insteadOf = gh:
+
+[credential]
+	helper = store
+
+[push]
+	autoSetupRemote = true
