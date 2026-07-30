@@ -18,7 +18,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(greg))
 hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd(gregMenu))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("google-chrome-stable --profile-directory=Default"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("google-chrome-stable --profile-directory=Profile 1"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("google-chrome-stable --profile-directory='Profile 1'"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zeditor"))
 
