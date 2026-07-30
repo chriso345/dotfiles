@@ -1,0 +1,9 @@
+---@module 'hl'
+
+return {
+  angle = 45,
+  active1 = "rgba(27850bff)",
+  active2 = "rgba(8a4adfff)",
+  inactive = "rgba(3a423888)",
+  shadow = "rgba(a77b0088)",
+}
